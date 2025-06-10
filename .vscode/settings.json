@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "cSpell.ignorePaths": [
+    "./src/configs/i18n/vi.ts"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.addMissingImports": "explicit",
+    "source.removeUnusedImports": "explicit"
+  },
+  "cSpell.words": [
+    "mantine"
+  ],
+}

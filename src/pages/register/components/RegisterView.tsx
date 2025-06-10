@@ -1,0 +1,27 @@
+import useTranslation from '@/hooks/useTranslation'
+import { Image, Stack, Text } from '@mantine/core'
+import RegisterForm, { RegisterFormProps } from './RegisterForm'
+
+export default function RegisterView({ ...props }: RegisterFormProps) {
+  const t = useTranslation()
+
+  return (
+    <Stack bg="var(--register-surface)" h="100dvh" w="100dvw" align="center" justify="center">
+      <Stack
+        bg="var(--register-background)"
+        mih="100dvh"
+        w={{ base: '100%', sm: 450 }}
+        align="center"
+        gap={20}
+        py="7dvh"
+        style={{ overflowY: 'auto' }}
+      >
+        <Image src="/favicon.svg" w={250} />
+        <Text fw="bolder" fz={30}>
+          {t('Get Started for Free')}
+        </Text>
+        <RegisterForm {...props} />
+      </Stack>
+    </Stack>
+  )
+}

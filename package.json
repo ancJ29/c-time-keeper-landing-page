@@ -1,0 +1,48 @@
+{
+  "name": "landing-page",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "static:check": "eslint . && prettier --check .",
+    "static:fix": "eslint . --fix && prettier --write ."
+  },
+  "dependencies": {
+    "@mantine/core": "^8.0.2",
+    "@mantine/dates": "^8.0.2",
+    "@mantine/form": "^8.0.2",
+    "@mantine/hooks": "^8.0.2",
+    "@mantine/notifications": "^8.1.0",
+    "axios": "^1.9.0",
+    "dayjs": "^1.11.13",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2",
+    "sass-embedded": "^1.89.1",
+    "zod": "^3.25.56"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1",
+    "vite": "^6.3.5"
+  }
+}
