@@ -9,15 +9,21 @@ export default function WelcomeView({ onClick }: WelcomeViewProps) {
   const t = useTranslation()
 
   return (
-    <Stack bg="var(--register-surface)" h="100dvh" w="100dvw" align="center" justify="center">
+    <Stack
+      bg="var(--register-surface)"
+      h="100dvh"
+      w="100dvw"
+      align="center"
+      justify="center"
+      style={{ overflowY: 'auto' }}
+    >
       <Stack
         bg="var(--register-background)"
-        mih="100dvh"
+        h="100dvh"
         w={{ base: '100%', sm: 450 }}
         align="center"
         justify="center"
         gap={25}
-        style={{ overflowY: 'auto' }}
         px={40}
       >
         <Image src="/register/welcome.svg" w={160} />

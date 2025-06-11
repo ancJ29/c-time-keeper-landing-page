@@ -1,4 +1,5 @@
 import PasswordInput from '@/components/PasswordInput'
+import PasswordStrengthInput from '@/components/PasswordStrengthInput'
 import TextInput from '@/components/TextInput'
 import useTranslation from '@/hooks/useTranslation'
 import { Button, Stack } from '@mantine/core'
@@ -29,7 +30,7 @@ export default function RegisterForm({ form, onSubmit }: RegisterFormProps) {
           {...form.getInputProps('businessName')}
         />
         <TextInput label={t('Enter your email')} withAsterisk {...form.getInputProps('email')} />
-        <PasswordInput
+        <PasswordStrengthInput
           label={t('Enter your password')}
           withAsterisk
           {...form.getInputProps('password')}

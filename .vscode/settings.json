@@ -11,6 +11,7 @@
     "source.removeUnusedImports": "explicit"
   },
   "cSpell.words": [
-    "mantine"
+    "mantine",
+    "tabler"
   ],
 }

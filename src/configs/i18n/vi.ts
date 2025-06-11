@@ -20,4 +20,11 @@ export default {
   'Welcome to TimeKeeper': 'Welcome to TimeKeeper',
   "Let's get you set up": 'Hãy để chúng tôi giúp bạn thiết lập',
   "Let's go": "Let's go",
+  'Includes at least 6 characters': 'Ít nhất 6 ký tự',
+  'Includes number': 'Chứa ít nhất 1 chữ số',
+  'Includes lowercase letter': 'Chứa ít nhất 1 chữ thường',
+  'Includes uppercase letter': 'Chứa ít nhất 1 chữ hoa',
+  'Includes special symbol': 'Chứa ít nhất 1 ký tự đặc biệt',
+  'Password must be at least 6 characters long': 'Mật khẩu phải có ít nhất 6 ký tự',
+  'Password is too weak': 'Mật khẩu quá yếu',
 }

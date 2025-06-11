@@ -45,7 +45,8 @@ export const theme: MantineThemeOverride = createTheme({
 export const resolver: CSSVariablesResolver = () => ({
   variables: {
     '--success': '#3ca77a',
-    '--error': '#d93e3e',
+    '--error': '#F95252',
+    '--warning': '#FAB007',
     '--register-surface': '#ebebeb',
     '--register-background': '#F5F5F5',
   },

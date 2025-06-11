@@ -1,6 +1,7 @@
 import { showNotification } from '@/configs/notifications'
 import useTranslation from '@/hooks/useTranslation'
 import { registerClientAccount, RegisterClientAccountProps } from '@/services/domain'
+import { getPasswordValidation } from '@/utils'
 import { useForm } from '@mantine/form'
 import { useCallback, useState } from 'react'
 import RegisterView from './components/RegisterView'
@@ -61,8 +62,7 @@ function _validate(t: (s: string) => string) {
       }
       return /^\S+@\S+$/.test(value) ? null : t('Invalid email')
     },
-    password: (value: string) =>
-      value === '' || value.trim() === '' ? t('Please enter your password') : null,
+    password: getPasswordValidation(t),
     confirmPassword: (value: string, values: FormProps) =>
       value !== values.password ? t('The passwords did not match') : null,
   }

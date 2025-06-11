@@ -20,4 +20,11 @@ export default {
   'Welcome to TimeKeeper': 'Welcome to TimeKeeper',
   "Let's get you set up": "Let's get you set up",
   "Let's go": "Let's go",
+  'Includes at least 6 characters': 'Includes at least 6 characters',
+  'Includes number': 'Includes number',
+  'Includes lowercase letter': 'Includes lowercase letter',
+  'Includes uppercase letter': 'Includes uppercase letter',
+  'Includes special symbol': 'Includes special symbol',
+  'Password must be at least 6 characters long': 'Password must be at least 6 characters long',
+  'Password is too weak': 'Password is too weak',
 }
