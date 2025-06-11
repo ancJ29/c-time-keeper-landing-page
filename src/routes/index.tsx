@@ -9,6 +9,10 @@ const routeConfigs: RouteConfig[] = [
   },
   {
     path: '/',
+    element: lazy(() => import('@/pages/home')),
+  },
+  {
+    path: '/register',
     element: lazy(() => import('@/pages/register')),
   },
   {
