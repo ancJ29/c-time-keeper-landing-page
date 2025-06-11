@@ -220,13 +220,13 @@ export default function App() {
         </Container>
       </Box>
 
-      <Box py={20} bg={'gray.0'}>
+      <Box py={28} bg={'gray.0'}>
         <Container size="lg">
           <Flex
             justify="space-between"
             align="center"
             direction={{ base: 'column', sm: 'row' }}
-            gap={{ base: 'md', sm: 0 }}
+            gap={8}
           >
             <Text size="sm" c="dimmed">
               © {new Date().getFullYear()} c.TimeKeeper. Tất cả các quyền được bảo lưu.
