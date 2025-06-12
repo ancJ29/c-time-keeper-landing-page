@@ -1,5 +1,5 @@
 import { TextInput as MantineTextInput, TextInputProps } from '@mantine/core'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import classes from './TextInput.module.scss'
 
 export default function TextInput({ ...props }: TextInputProps) {
@@ -7,14 +7,23 @@ export default function TextInput({ ...props }: TextInputProps) {
   const floating =
     typeof props.value === 'string' && props.value.trim().length !== 0 ? true : focused || undefined
 
+  const onFocus = useCallback((e: React.FocusEvent<HTMLInputElement, Element>) => {
+    setFocused(true)
+    props.onFocus?.(e)
+  }, [])
+
+  const onBlur = useCallback((e: React.FocusEvent<HTMLInputElement, Element>) => {
+    setFocused(false)
+    props.onBlur?.(e)
+  }, [])
+
   return (
     <MantineTextInput
       {...props}
       label={props.label}
       classNames={classes}
-      onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
-      autoComplete="nope"
+      onFocus={onFocus}
+      onBlur={onBlur}
       data-floating={floating}
       labelProps={{ 'data-floating': floating }}
     />
