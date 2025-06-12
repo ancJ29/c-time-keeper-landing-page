@@ -17,7 +17,7 @@ export default function RegisterView({ ...props }: RegisterFormProps) {
       <Stack
         bg="var(--register-background)"
         w={{ base: '100%', sm: 450 }}
-        h="100dvh"
+        mih="100dvh"
         align="center"
         gap={20}
         py="7dvh"
