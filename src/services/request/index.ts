@@ -11,7 +11,7 @@ type RequestProps = {
 export default async function request({ data }: RequestProps) {
   loadingStore.startLoading()
 
-  const baseUrl = import.meta.env.VITE_BASE_URL
+  const baseUrl = import.meta.env.VITE_API_BASE_URL
 
   try {
     const res = await axios.request({

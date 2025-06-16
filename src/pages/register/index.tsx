@@ -1,9 +1,11 @@
 import { showNotification } from '@/configs/notifications'
 import useTranslation from '@/hooks/useTranslation'
 import { registerClientAccount, RegisterClientAccountProps } from '@/services/domain'
-import { getPasswordValidation } from '@/utils'
+import { getEmailSchema, getPasswordSchema } from '@/utils'
 import { useForm } from '@mantine/form'
+import { zodResolver } from 'mantine-form-zod-resolver'
 import { useCallback, useState } from 'react'
+import z from 'zod'
 import RegisterView from './components/RegisterView'
 import WelcomeView from './components/WelcomeView'
 
@@ -28,11 +30,16 @@ export default function Register() {
   const form = useForm<FormProps>({
     initialValues,
     validateInputOnBlur: true,
-    validate: _validate(t),
+    validate: zodResolver(schema(t)),
   })
 
   const submit = useCallback(async (values: FormProps) => {
-    const res = await registerClientAccount(values)
+    const res = await registerClientAccount({
+      ...values,
+      businessName: values.businessName.trim(),
+      name: values.name.trim(),
+      email: values.email.trim(),
+    })
     if (!res?.success) {
       showNotification({ success: false, message: t(res?.message) })
       return
@@ -51,20 +58,17 @@ export default function Register() {
   return <RegisterView form={form} onSubmit={submit} />
 }
 
-function _validate(t: (s: string) => string) {
-  return {
-    businessName: (value: string) =>
-      value === '' || value.trim() === '' ? t('Please enter your business name') : null,
-    name: (value: string) =>
-      value === '' || value.trim() === '' ? t('Please enter your name') : null,
-    email: (value: string) => {
-      if (value.trim() === '') {
-        return t('Please enter your email')
-      }
-      return /^\S+@\S+$/.test(value) ? null : t('Invalid email')
-    },
-    password: getPasswordValidation(t),
-    confirmPassword: (value: string, values: FormProps) =>
-      value !== values.password ? t('The passwords did not match') : null,
-  }
-}
+export const schema = (t: (key: string) => string) =>
+  z
+    .object({
+      businessName: z.string().trim().min(1, t('Please enter your business name')),
+      name: z.string().trim().min(1, t('Please enter your name')),
+      email: getEmailSchema(t),
+      password: getPasswordSchema(t),
+      confirmPassword: z.string(),
+      hasAgreedToPolicy: z.boolean().optional(),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      path: ['confirmPassword'],
+      message: t('The passwords did not match'),
+    })
