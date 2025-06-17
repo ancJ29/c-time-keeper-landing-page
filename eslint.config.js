@@ -42,6 +42,8 @@ export default [
       'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
       '@typescript-eslint/no-unused-vars': ['error'],
       '@typescript-eslint/no-explicit-any': 'warn',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
     settings: {
       react: {

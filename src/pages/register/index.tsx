@@ -33,19 +33,22 @@ export default function Register() {
     validate: zodResolver(schema(t)),
   })
 
-  const submit = useCallback(async (values: FormProps) => {
-    const res = await registerClientAccount({
-      ...values,
-      businessName: values.businessName.trim(),
-      name: values.name.trim(),
-      email: values.email.trim(),
-    })
-    if (!res?.success) {
-      showNotification({ success: false, message: t(res?.message) })
-      return
-    }
-    setIsSubmitSuccess(true)
-  }, [])
+  const submit = useCallback(
+    async (values: FormProps) => {
+      const res = await registerClientAccount({
+        ...values,
+        businessName: values.businessName.trim(),
+        name: values.name.trim(),
+        email: values.email.trim(),
+      })
+      if (!res?.success) {
+        showNotification({ success: false, message: t(res?.message) })
+        return
+      }
+      setIsSubmitSuccess(true)
+    },
+    [t],
+  )
 
   const handleNavigateToLogin = useCallback(() => {
     window.location.href = import.meta.env.VITE_LOGIN_URL
