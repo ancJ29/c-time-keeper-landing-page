@@ -44,7 +44,7 @@ export default function RegisterForm({ form, onSubmit }: RegisterFormProps) {
           checked={form.values.hasAgreedToPolicy}
           {...form.getInputProps('hasAgreedToPolicy')}
         />
-        <Button fullWidth type="submit" disabled={!form.values.hasAgreedToPolicy}>
+        <Button fullWidth type="submit" disabled={!form.isValid()}>
           {t('Start my free')}
         </Button>
       </Stack>

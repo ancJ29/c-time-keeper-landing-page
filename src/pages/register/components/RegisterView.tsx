@@ -22,12 +22,13 @@ export default function RegisterView({ ...props }: RegisterFormProps) {
         gap={20}
         py="7dvh"
       >
-        <Stack align="center" gap={8} mb={20}>
+        <Stack align="center" gap={16} mb={20}>
           <Image src="/favicon.svg" w={250} />
           <Text fw="bolder" fz={32}>
             {t('Get Started for Free')}
           </Text>
         </Stack>
+
         <RegisterForm {...props} />
       </Stack>
     </Stack>

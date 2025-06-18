@@ -30,6 +30,7 @@ export default function Register() {
   const form = useForm<FormProps>({
     initialValues,
     validateInputOnBlur: true,
+    validateInputOnChange: true,
     validate: zodResolver(schema(t)),
   })
 
@@ -69,7 +70,7 @@ export const schema = (t: (key: string) => string) =>
       email: getEmailSchema(t),
       password: getPasswordSchema(t),
       confirmPassword: z.string(),
-      hasAgreedToPolicy: z.boolean().optional(),
+      hasAgreedToPolicy: z.literal(true),
     })
     .refine((data) => data.password === data.confirmPassword, {
       path: ['confirmPassword'],
