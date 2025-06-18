@@ -70,7 +70,6 @@ export const schema = (t: (key: string) => string) =>
       email: getEmailSchema(t),
       password: getPasswordSchema(t),
       confirmPassword: z.string(),
-      hasAgreedToPolicy: z.literal(true),
     })
     .refine((data) => data.password === data.confirmPassword, {
       path: ['confirmPassword'],
